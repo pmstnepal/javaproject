@@ -31,16 +31,29 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	@Autowired
 	private Validation callvalidation;
 	
+	@Autowired
 	private SingupRepository callsignrepo;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//		if ("alex".equals(username)) { 
+//			List<GrantedAuthority> authorities =
+//				   new ArrayList<>(); authorities.add(new SimpleGrantedAuthority("ADMIN"));
+//				   //username ,password ,role return new
+//				   return new User(username,passwordEncoder.encode("alex123"),authorities); 
+//		}
+//		
+		
+		
+//		if (callvalidation.userid(username)) 
 		Optional<Mysqlentity> checkdata=callsignrepo.findById(username);
-		if (checkdata.isPresent()) {	
+		if (checkdata.isPresent())
+		{
 			List<GrantedAuthority> authorities = new ArrayList<>();
 			authorities.add(new SimpleGrantedAuthority(checkdata.get().getRole()));
-			return new User(username, checkdata.get().getPassword(), authorities);
-			
+			//username ,password ,role
+
+			return new User(username,checkdata.get().getPassword(),authorities);
 		} else {
 			throw new UsernameNotFoundException("User Not Found with username: " + username);
 		}

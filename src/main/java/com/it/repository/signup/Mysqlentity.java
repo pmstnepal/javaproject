@@ -3,6 +3,7 @@ package com.it.repository.signup;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -24,6 +25,7 @@ public class Mysqlentity{
 	private String DOB_month;
 	private int	DOB_day;
 	private int DOB_year;
+	@Column(columnDefinition="varchar(30) default 'USER'")
 	private String role;
 	
 	public String getRole() {

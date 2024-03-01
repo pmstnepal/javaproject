@@ -55,12 +55,21 @@ public boolean roleTrueFalse(String username, String password, String role) {
 	}
 
 
-public boolean rolecheck(String role) {
+public boolean userid(String username) {
 	
-	Optional<Mysqlentity> checkdata=checkrepo.findByRole(role);
+	Optional<Mysqlentity> checkdata=checkrepo.findById(username);
 	return checkdata.isPresent();
 	
 	
+	
+}
+
+public String rolecheck(String role) {
+	Optional<Mysqlentity> rolecheck=checkrepo.findByRole(role);
+	if("Admin".equals(rolecheck(role))) {
+		
+
+	}return "ADMIN";
 	
 }
 	

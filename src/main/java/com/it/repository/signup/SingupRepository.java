@@ -18,7 +18,9 @@ public interface SingupRepository extends JpaRepository<Mysqlentity, String>{
 
 	public Optional<Mysqlentity> findByUsernameAndPasswordAndRole(String username, String password, String role);
 	
-	Optional<Mysqlentity> findByRole(String role);
+	public Optional<Mysqlentity> findByEmail(String email);
+	public Optional<Mysqlentity> findByRole(String role);
+	
 
 
 	

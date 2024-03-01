@@ -1,8 +1,11 @@
 package com.it.controller;
 
+import javax.persistence.Column;
+
 public class LoginDTO {
 	private String username;
 	private String password;
+	
 	private String role;
 	
 	

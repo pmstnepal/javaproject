@@ -69,7 +69,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
 		authenticationEntryPoint(unauthorizedHandler).and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 				.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class)
-				.authorizeRequests().antMatchers("/api/login/**","/api/signups/**")
+				.authorizeRequests().antMatchers("/api/v1/auth/**")
 				.permitAll().anyRequest().authenticated();
 		
 		
