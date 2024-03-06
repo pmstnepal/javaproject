@@ -47,8 +47,8 @@ public class JwtUtils {
 		 //map(s->s.getAuthority()).findFirst().get()
 	     Map<String,Object> claims=new HashMap<>();
 		 claims.put("auth", role);
-		 claims.put("email", "pykube02@gmail.com");
-		 claims.put("company", "Technohunk Info Solution Pvt. Ltd.");
+		 claims.put("email", "pmstnepal@gmail.com");
+		 claims.put("company", "PMST NEPAL Pvt. Ltd.");
 	    return Jwts.builder()
 	        .setSubject((userPrincipal.getUsername()))
 	        .addClaims(claims)

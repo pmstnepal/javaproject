@@ -50,9 +50,11 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		if (checkdata.isPresent())
 		{
 			List<GrantedAuthority> authorities = new ArrayList<>();
-			authorities.add(new SimpleGrantedAuthority(checkdata.get().getRole()));
+			if ("Admin" == checkdata.get().getRole()) {
+			authorities.add(new SimpleGrantedAuthority("Admin"));
 			//username ,password ,role
-
+			
+			}
 			return new User(username,checkdata.get().getPassword(),authorities);
 		} else {
 			throw new UsernameNotFoundException("User Not Found with username: " + username);

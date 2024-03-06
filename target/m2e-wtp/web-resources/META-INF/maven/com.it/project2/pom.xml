@@ -8,13 +8,15 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.3.5.RELEASE</version>
+    <version>2.6.2</version>
+    <relativePath />
 </parent>
   
 	
 	
 	<properties>
 		<java.version>11</java.version>
+		<spring-cloud.version>2021.0.2</spring-cloud.version>
 	</properties>
 
 	
@@ -23,13 +25,15 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>				
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		-->
 		
+
 				
 			<!-- This is for JSP -->
 		<dependency>
@@ -41,12 +45,18 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
+        
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
         <!-- MySQL dependency -->
        
 		<dependency> 
             <groupId>org.springframework.boot</groupId> 
             <artifactId>spring-boot-starter-data-jpa</artifactId> 
         </dependency> 
+        
          <dependency> 
             <groupId>mysql</groupId> 
             <artifactId>mysql-connector-java</artifactId> 
@@ -65,8 +75,29 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		<!-- following dependencies will developfor micro services-->
+	<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-client -->
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		    
+		</dependency>
+
+
 	
 	</dependencies>
+	
+	<dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 	
 
 	<build>
